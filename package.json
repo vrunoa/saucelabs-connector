@@ -13,7 +13,9 @@
     "url": "https://github.com/AlexanderMoskovkin/saucelabs-connector.git"
   },
   "scripts": {
-    "test": "gulp lint"
+    "lint": "gulp lint",
+     "build": "gulp build",
+    "test": "npm run build && mocha -t 0 ./tests/integration/*.spec.js"
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",
@@ -28,12 +30,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^4.0.5",
+    "chai": "^4.3.4",
     "del": "^2.1.0",
     "eslint": "4.18.2",
     "eslint-plugin-babel": "^2.1.1",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.0",
-    "gulp-eslint": "^1.0.0"
+    "gulp-eslint": "^1.0.0",
+    "mocha": "^8.3.2"
   },
   "files": [
     "lib"

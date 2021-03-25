@@ -76,7 +76,10 @@ export default class SaucelabsConnector {
         wd.configureHttp({
             retryDelay: WEB_DRIVER_CONFIGURATION_RETRY_DELAY,
             retries:    WEB_DRIVER_CONFIGURATION_RETRIES,
-            timeout:    WEB_DRIVER_CONFIGURATION_TIMEOUT
+            timeout:    WEB_DRIVER_CONFIGURATION_TIMEOUT,
+            headers:    {
+                'User-Agent': 'testcafe/saucelabs-conector'
+            }
         });
 
         this.options = { connectorLogging };
@@ -127,7 +130,8 @@ export default class SaucelabsConnector {
             tags:             tags,
             build:            build,
             tunnelIdentifier: this.tunnelIdentifier,
-            idleTimeout:      WEB_DRIVER_IDLE_TIMEOUT
+            idleTimeout:      WEB_DRIVER_IDLE_TIMEOUT,
+            customData:       { driver: 'DevExpress/saucelabs-connector' }
         };
 
         assign(initParams, browser);
