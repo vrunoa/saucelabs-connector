@@ -76,10 +76,7 @@ export default class SaucelabsConnector {
         wd.configureHttp({
             retryDelay: WEB_DRIVER_CONFIGURATION_RETRY_DELAY,
             retries:    WEB_DRIVER_CONFIGURATION_RETRIES,
-            timeout:    WEB_DRIVER_CONFIGURATION_TIMEOUT,
-            headers:    {
-                'User-Agent': 'testcafe/saucelabs-conector'
-            }
+            timeout:    WEB_DRIVER_CONFIGURATION_TIMEOUT
         });
 
         this.options = { connectorLogging };
