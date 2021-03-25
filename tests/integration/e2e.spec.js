@@ -22,12 +22,12 @@ var jobOptions = {
 var saucelabsConnector = new SauceLabsConnector(process.env.SAUCE_USERNAME, process.env.SAUCE_ACCESS_KEY);
 var saucelabsBrowser   = null;
 
+/* eslint-disable no-console */
 var exitOnError = function (err) {
-    console.log("crap");
-    throw new Error(err);
+    console.log(err);
+    process.exit(1); // eslint-disable-line no-process-exit
 };
 
-/* eslint-disable no-console */
 describe('e2e', function () { // eslint-disable-line no-undef
     it('complete flow', function (done) { // eslint-disable-line no-undef
         // Connects the local machine to SauceLabs
@@ -58,8 +58,7 @@ describe('e2e', function () { // eslint-disable-line no-undef
         })
 	.catch(exitOnError)
 	.then(function (title) {
-            console.log(title);
-            expect(title).to.equal('TestCafe Example page'); // eslint-disable-line indent
+            expect(title).to.equal('TestCafe Example Page'); // eslint-disable-line indent
             return new Promise(function (resolve) { // eslint-disable-line indent
                 setTimeout(resolve, 1500);
             });
