@@ -127,7 +127,8 @@ export default class SaucelabsConnector {
             tags:             tags,
             build:            build,
             tunnelIdentifier: this.tunnelIdentifier,
-            idleTimeout:      WEB_DRIVER_IDLE_TIMEOUT
+            idleTimeout:      WEB_DRIVER_IDLE_TIMEOUT,
+            customData:       { driver: 'DevExpress/saucelabs-connector' }
         };
 
         assign(initParams, browser);

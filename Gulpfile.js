@@ -22,7 +22,7 @@ gulp.task('prerun-scripts', ['clean'], function () {
 
 gulp.task('lint', function () {
     return gulp
-        .src(['src/**/*.js', 'Gulpfile.js'])
+        .src(['src/**/*.js', 'Gulpfile.js', 'tests/**/*.js'])
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failOnError());
