@@ -3,11 +3,7 @@
 
 name: DevExpress/saucelabs-connector tests pipeline
 
-on:
-  pull_request:
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 
 env:
   SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
